@@ -1,1 +1,1 @@
-worker: python shinjo_signals_pro_bot.py
+worker: python shinjo_signals_real_time_bot.py

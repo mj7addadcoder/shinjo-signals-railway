@@ -1,4 +1,3 @@
-
 import requests
 import time
 import random
@@ -37,6 +36,7 @@ def send_telegram_message(message):
     return requests.post(url, data=payload)
 
 # ==== Main Logic ====
+
 def generate_scalping_signal():
     pairs = [("BTCUSD", "bitcoin"), ("ETHUSD", "ethereum"), ("EURUSD", None), ("GBPUSD", None)]
     pair, crypto_id = random.choice(pairs)
@@ -52,25 +52,23 @@ def generate_scalping_signal():
         tp1 = round(entry_price * 1.005, 4)
         tp2 = round(entry_price * 1.01, 4)
         message = (
-            "🚨 *توصية سكالب لحظية – Shinjo Signals*
-"
-            f"💱 الزوج: `{pair}`
-"
-            f"💰 السعر الحالي: *{entry_price}*
-"
-            f"🎯 الهدف 1: `{tp1}`
-"
-            f"🎯 الهدف 2: `{tp2}`
-"
-            f"🛑 وقف الخسارة: `{sl}`
-"
-            "📊 نوع الصفقة: *شراء* (مثال)
-"
+            "🚨 *توصية سكالب لحظية – Shinjo Signals*\n"
+            f"💱 الزوج: `{pair}`\n"
+            f"💰 السعر الحالي: *{entry_price}*\n"
+            f"🎯 الهدف 1: `{tp1}`\n"
+            f"🎯 الهدف 2: `{tp2}`\n"
+            f"🛑 وقف الخسارة: `{sl}`\n"
+            "📊 نوع الصفقة: *شراء* (مثال)\n"
             "🧠 ملاحظة: تم توليد الإشارة بناءً على تحليل فني تلقائي"
         )
         send_telegram_message(message)
     else:
         send_telegram_message("فشل في جلب السعر الحقيقي، تحقق من الاتصال أو المفاتيح.")
 
-# Run once for now (production version would be a scheduler)
-generate_scalping_signal()
+# ==== Auto Loop Every 5 Minutes ====
+if __name__ == "__main__":
+    while True:
+        print("🔄 تشغيل فحص تلقائي للتوصيات...")
+        generate_scalping_signal()
+        print("⏳ الانتظار 5 دقائق...")
+        time.sleep(300)

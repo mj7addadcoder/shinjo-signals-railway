@@ -1,5 +1,5 @@
 
-# Shinjo Signals Bot V2.1 – نسخة معدّلة مع ربط مباشر بتليجرام وإرسال توصيات سكالب تلقائيًا
+# Shinjo Signals Bot V2.3 – نسخة معدّلة مع ربط مباشر بتليجرام وإرسال توصيات سكالب تلقائيًا
 
 import datetime
 import pytz

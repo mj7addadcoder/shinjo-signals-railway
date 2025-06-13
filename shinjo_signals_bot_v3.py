@@ -7,7 +7,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 TWELVE_API = os.getenv("TWELVE_API")
 
-PAIR = "BTC/USD"
+PAIR = "XAU/USD"
 
 def get_price():
     url = f"https://api.twelvedata.com/price?symbol={PAIR}&apikey={TWELVE_API}"
